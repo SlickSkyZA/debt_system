@@ -18,6 +18,11 @@
                         <h2>Rp. {{ number_format($item->total) }}</h2>
                         <span class="{{ ($item->status == 'Uang Keluar')? 'gived': 'accepted' }}">{{ $item->status }}</span>    
                     </div>
+                    <form action="{{ route("debt.destroy", $item->id) }}" method="POST">
+                        @csrf
+                        @method("DELETE")
+                        <button class="gived">Hapus</button>
+                    </form>
                 </div>
             @endforeach
         @endif
@@ -30,6 +35,5 @@
                 <h2>Rp. {{ number_format($debt->total) }}</h2>
             </div>
         </div>
-    </div>
-</div>
+    </div></div>
 @endsection

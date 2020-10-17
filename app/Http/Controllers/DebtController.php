@@ -44,7 +44,7 @@ class DebtController extends Controller
             return redirect()->route('debt.create')->with('message', 'Data sudah ada');
         }
         $result = Debt::create($data);
-        return redirect()->route('welcome')->with('message', 'Successfuly');
+        return redirect()->route('/')->with('message', 'Successfuly');
     }
 
     /**
@@ -93,9 +93,10 @@ class DebtController extends Controller
      * @param  \App\Models\debt  $debt
      * @return \Illuminate\Http\Response
      */
-    public function destroy(debt $debt)
+    public function destroy(int $id)
     {
-        //
+        $result = DebtDetails::destroy($id);
+        return redirect()->back();
     }
 
     public function give(int $id)
