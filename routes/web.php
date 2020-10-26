@@ -22,3 +22,5 @@ Route::get('debt/{id}/berikan', 'DebtController@give')->name('debt.give');
 Route::get('debt/{id}/terima', 'DebtController@accept')->name('debt.accept');
 Route::post('debt-detail', 'DebtController@detail_store')->name('debt-detail.store');
 Route::resource('debtor', 'DebtorController');
+Route::resource('users', 'UserController');
+Route::put('users/resetpassword/{id}', 'UserController@reset_password')->name('users.resetpassword');
